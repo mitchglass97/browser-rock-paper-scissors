@@ -1,0 +1,101 @@
+<!-- <script src="./index.js"></script> -->
+
+<script>
+    // Computer randomly picks rock, paper, or scissors
+    function computerPlay() {
+        let rand = Math.floor(Math.random() * 3);
+        switch(rand) {
+            case 0:
+                return "rock";
+            case 1:
+                return "paper";
+            case 2: 
+                return "scissors";
+        }
+    }
+
+    // Takes a choice from player and computer and determines winner
+    // returns winner in form of a text string, either "player", 
+    // "computer", or "tie".
+    function playRound(player, computer) {
+        console.log("You chose: " + player);
+        console.log("Computer chose: " + computer); 
+        let winner = 0 // 0 - tie 
+                    // 1 - player wins
+                    // 2 - computer wins
+
+        switch(player) {
+            case "rock":
+                if(computer === "paper") {
+                    winner = 2;
+                } else if(computer === "scissors") {
+                    winner = 1;
+                }
+                break;
+            case "paper":
+                if(computer === "scissors") {
+                    winner = 2;
+                } else if(computer === "rock") {
+                    winner = 1;
+                }
+                break;
+            case "scissors":
+                if(computer === "rock") {
+                    winner = 2;
+                } else if(computer === "paper") {
+                    winner = 1;
+                }
+                break;
+        }
+
+        if(winner === 1) {
+            console.log("You win round-- " + player + " beats " + computer);
+            return "player"
+        } else if(winner === 2) {
+            console.log("You lose round-- " + computer + " beats " + player);
+            return "computer";
+        } else {
+            console.log("Tie round.");
+            return "tie";
+        }
+    }
+
+    // Loops through five rounds of the game. The user will
+    // be prompted five times. Result of each round is printed
+    // to console. After five rounds, result of the game is
+    // printed to console. 
+    function game() {
+        var round;
+        var playerWins = 0;
+        var computerWins = 0;
+        var ties = 0;
+
+        for (let round = 0; round < 5; round++) {
+            // Computer and Player make their pick
+            let computer = computerPlay();
+            let player = prompt("enter rock, paper, or scissors");
+            player = player.toLowerCase();
+            let result = playRound(player, computer);
+            if(result === "player") {
+                playerWins++;
+            } else if (result === "computer") {
+                computerWins++;
+            } else {
+                ties++;
+            }
+            console.log("---------------------")
+        }
+        
+        // See who won
+        if(playerWins > computerWins) {
+            console.log("You win the game! " + playerWins + " to " + computerWins + ".");
+        } else if(playerWins < computerWins) {
+            console.log("You lose the game! " + computerWins + " to " + playerWins + ".");
+        } else {
+            console.log("Tie game! " + playerWins + " to " + computerWins + ".");
+        }
+        console.log("Refresh the page to play again!");
+    }
+
+    game();
+</script>
