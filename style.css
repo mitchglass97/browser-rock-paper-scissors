@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.website-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #AFC2D5;
+    height: 15vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+}
+
+body {
+    background-color: #fff;
+}
+
+#score {
+    position: relative;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    padding: 20px;
+    margin: 20px;
+    background-color: default;
+}
+
+#score-title {
+    text-decoration: underline;
+}
+
+#results {
+    font-family: 'Montserrat', sans-serif;
+    border: solid 1px black;
+    margin: 50px 200px;
+    padding: 50px 0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chosen {
+    background-color: rgb(122, 238, 122);
+}
+
+.incorrect {
+    background-color: rgb(245, 84, 84);
+}
+
+#restart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#restart-button {
+    visibility: hidden;
+}
